@@ -50,3 +50,33 @@ jobs:
           path: SignTask-appetize.zip
           archive: false
           retention-days: 30
+
+  ipad-playground:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Chọn Xcode mới nhất
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Tạo SignTask.swiftpm cho Swift Playgrounds
+        run: bash scripts/make-ipad-playground.sh
+
+      - name: Build thử gói Playgrounds
+        working-directory: build/ipad/SignTask.swiftpm
+        run: |
+          xcodebuild build \
+            -scheme SignTask \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            | tee build.log | grep -E "error:|BUILD" || true
+          grep -q "BUILD SUCCEEDED" build.log
+
+      - name: Tải lên mục Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          path: SignTask-iPad.zip
+          archive: false
+          retention-days: 90

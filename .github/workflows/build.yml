@@ -39,12 +39,14 @@ jobs:
 
       - name: Đóng gói app Simulator (để chạy trên trình duyệt qua Appetize.io)
         run: |
-          ditto -c -k --sequesterRsrc --keepParent \
-            build/Build/Products/Debug-iphonesimulator/SignTask.app SignTask-simulator.zip
+          ditto -c -k --norsrc --keepParent \
+            build/Build/Products/Debug-iphonesimulator/SignTask.app SignTask-appetize.zip
+          unzip -l SignTask-appetize.zip | head -5
 
+      # archive: false → tải về đúng file zip này, upload thẳng lên Appetize không cần giải nén
       - name: Tải lên mục Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: SignTask-appetize
-          path: SignTask-simulator.zip
+          path: SignTask-appetize.zip
+          archive: false
           retention-days: 30

@@ -14,14 +14,13 @@ Bạn đưa file đó lên **Appetize.io** — trang web chạy iPhone ảo ngay
 1. Mở https://github.com/nynyann/SignTask/actions
 2. Bấm vào dòng **Build** trên cùng có dấu ✅ xanh.
    (Nếu chưa có dòng nào xanh: bấm **Build** ở cột trái → **Run workflow** → **Run workflow**, đợi khoảng 2 phút.)
-3. Kéo xuống cuối trang, mục **Artifacts**, bấm **SignTask-appetize** để tải về.
-4. Giải nén **SignTask-appetize.zip** (Windows: chuột phải → **Extract All**).
-   Bên trong có file **`SignTask-simulator.zip`** — đây là file cần dùng, **không giải nén tiếp**.
+3. Kéo xuống cuối trang, mục **Artifacts**, bấm **SignTask-appetize.zip** để tải về.
+   **Không giải nén** — file này upload thẳng lên Appetize.
 
 ### Bước 2 — Đưa lên Appetize
 1. Vào https://appetize.io → **Sign up**, tạo tài khoản miễn phí (có thể đăng nhập bằng Google).
 2. Trong trang quản lý, bấm **Upload** (hoặc **Upload app** / **New app**).
-3. Chọn file `SignTask-simulator.zip` ở bước 1. Nếu được hỏi nền tảng, chọn **iOS**.
+3. Chọn file `SignTask-appetize.zip` ở bước 1. Nếu được hỏi nền tảng, chọn **iOS**.
 4. Tải lên xong, bấm vào app vừa tạo → **Open** / **Play**.
 
 ### Bước 3 — Bấm thử
@@ -40,6 +39,7 @@ Thử theo thứ tự: thẻ đỏ → **+** (mở tin) → đổi **Văn bản 
 ### Giới hạn của bản thử trên web
 - Không có phím âm lượng thật, không rung. Micro thường không dùng được, nên màn **Nhắn tin** bằng giọng nói có thể không chạy.
 - Gói miễn phí của Appetize giới hạn số phút chạy mỗi tháng.
+- Báo **"No .app folder found"**: bạn đang upload nhầm file (đã giải nén rồi nén lại, hoặc file từ bản build cũ). Tải lại **SignTask-appetize.zip** ở bước 1 và upload nguyên file.
 - Báo **"All slots for this account are currently in use"** / **Account-based queue**: gói miễn phí chỉ chạy 1 máy ảo một lúc. Đóng các tab Appetize khác (kể cả trang xem trước sau khi upload), đợi 2–5 phút rồi tải lại trang.
 - File trong **Artifacts** tự xóa sau 30 ngày → bấm **Run workflow** (bước 1.2) để build lại.
 - Có code mới thì phải tải file mới và upload lại (trong Appetize có thể bấm **Update** trên app cũ để giữ nguyên link).

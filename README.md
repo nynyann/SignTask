@@ -45,6 +45,46 @@ Thử theo thứ tự: thẻ đỏ → **+** (mở tin) → đổi **Văn bản 
 - Có code mới thì phải tải file mới và upload lại (trong Appetize có thể bấm **Update** trên app cũ để giữ nguyên link).
 - Muốn thử phím âm lượng và giọng nói thật thì phải cài lên iPhone (cần Mac, xem phần dưới).
 
+## Chạy trên iPad bằng Swift Playgrounds (không cần Mac, miễn phí)
+
+Chạy thật trên iPad, có phím âm lượng, rung và micro. Không cần Mac, không cần cáp, không cần tài khoản Apple Developer.
+Chỉ chạy được trên **iPad**, Swift Playgrounds không có trên iPhone.
+
+**Cần có:** iPad chạy **iPadOS 17 trở lên** (iPadOS 26 để thấy hiệu ứng kính giống Figma) và tài khoản GitHub có quyền xem repo này.
+
+### Bước 1: Cài Swift Playgrounds
+Trên iPad mở **App Store**, tìm **Swift Playgrounds** (của Apple, miễn phí) và cài.
+
+### Bước 2: Tải gói app về iPad
+1. Trên iPad mở **Safari**, vào https://github.com/nynyann/SignTask/actions và đăng nhập GitHub.
+2. Bấm vào dòng **Build** trên cùng có dấu ✅ xanh.
+3. Kéo xuống mục **Artifacts**, bấm **SignTask-iPad.zip** rồi chọn **Tải về**.
+   Không thấy mục Artifacts: bấm biểu tượng **Aa** (hoặc **⋯**) trên thanh địa chỉ, chọn **Yêu cầu trang web cho máy tính**, tải lại trang.
+
+Cách khác: tải file trên máy tính rồi gửi sang iPad bằng AirDrop, iCloud Drive, Google Drive hoặc Zalo.
+
+### Bước 3: Mở bằng Swift Playgrounds
+1. Mở app **Tệp** (Files), vào **Tải về** (Downloads).
+2. Chạm vào **SignTask-iPad.zip**. iPad tự giải nén ra thư mục **SignTask** (biểu tượng Swift Playgrounds).
+3. Chạm vào **SignTask** để mở trong Swift Playgrounds.
+   Nếu nó mở ra như thư mục thường: mở app Swift Playgrounds, bấm **Vị trí / Locations** ở góc, tìm đến **Tải về** và chọn **SignTask**.
+4. Lần đầu Swift Playgrounds có thể hỏi có tin cậy/cho phép chạy code này không: chọn **Cho phép / Trust**.
+
+### Bước 4: Chạy app
+1. Đợi vài giây cho Swift Playgrounds đọc xong code (vòng xoay ở trên cùng biến mất).
+2. Bấm nút **▶︎ Chạy** (Run) ở góc trên. App hiện ở khung bên phải.
+3. Bấm biểu tượng **toàn màn hình** ở khung đó để app chiếm cả màn hình.
+4. Lần đầu vào màn **Nhắn tin**, iPad hỏi quyền micro và nhận dạng giọng nói: chọn **Cho phép**.
+
+Dùng phím âm lượng của iPad (cạnh trên hoặc cạnh bên) giống bảng phím ở phần trên, hoặc bấm tab **+ / −** trên màn hình.
+
+### Lưu ý khi chạy trên iPad
+- Giao diện thiết kế cho iPhone nên trên iPad sẽ nằm gọn một bên, không giãn ra hết màn hình.
+- App chạy bên trong Swift Playgrounds nên phím âm lượng có thể thỉnh thoảng làm hiện thanh âm lượng của hệ thống. Nếu phím không phản hồi, bấm tab **+ / −** trên màn hình.
+- Có code mới thì tải lại **SignTask-iPad.zip** (bước 2), xóa bản cũ trong app Tệp rồi làm lại bước 3.
+- File trong Artifacts tự xóa sau 90 ngày. Hết hạn thì vào **Actions → Build → Run workflow** để tạo lại.
+- Muốn tự tạo gói trên máy có bash: `bash scripts/make-ipad-playground.sh` (ra file `SignTask-iPad.zip`).
+
 ## Chạy trên Mac (khoảng 10 phút)
 
 Cần: Mac có Xcode 26 và Homebrew, iPhone kèm cáp, Apple ID.
@@ -84,6 +124,7 @@ Chưa có ảnh thì app hiện biểu tượng ly cà phê thay thế.
 | `Theme.swift` | Màu lấy từ Figma, Liquid Glass, tab +/−, chip, toast |
 | `VolumeButtonManager.swift` | Bắt phím âm lượng vật lý |
 | `Speech.swift` | Ghi âm, nhận dạng tiếng Việt, phát lại |
+| `Playground/Package.swift`, `scripts/make-ipad-playground.sh` | Đóng gói app cho Swift Playgrounds trên iPad |
 
 Cách tạo project bằng tay trong Xcode (không dùng XcodeGen) và bảng phím: xem [HUONG_DAN.md](HUONG_DAN.md).
 

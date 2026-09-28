@@ -40,6 +40,7 @@ Thử theo thứ tự: thẻ đỏ → **+** (mở tin) → đổi **Văn bản 
 ### Giới hạn của bản thử trên web
 - Không có phím âm lượng thật, không rung. Micro thường không dùng được, nên màn **Nhắn tin** bằng giọng nói có thể không chạy.
 - Gói miễn phí của Appetize giới hạn số phút chạy mỗi tháng.
+- Báo **"All slots for this account are currently in use"** / **Account-based queue**: gói miễn phí chỉ chạy 1 máy ảo một lúc. Đóng các tab Appetize khác (kể cả trang xem trước sau khi upload), đợi 2–5 phút rồi tải lại trang.
 - File trong **Artifacts** tự xóa sau 30 ngày → bấm **Run workflow** (bước 1.2) để build lại.
 - Có code mới thì phải tải file mới và upload lại (trong Appetize có thể bấm **Update** trên app cũ để giữ nguyên link).
 - Muốn thử phím âm lượng và giọng nói thật thì phải cài lên iPhone (cần Mac — xem phần dưới).

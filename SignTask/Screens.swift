@@ -278,16 +278,17 @@ struct ShiftListView: View {
                 ScrollViewReader { proxy in
                     ScrollView(showsIndicators: false) {
                         VStack(alignment: .trailing, spacing: 0) {
-                            section("CẦN XÁC NHẬN (\(state.pending.count))")
+                            // Figma: chỉ ghi "(0)" khi mục trống
+                            section("CẦN XÁC NHẬN", count: state.pending.count)
                             ForEach(Array(state.pending.enumerated()), id: \.element.id) { i, m in
                                 row(m, selected: i == state.selectedIndex).id(m.id)
                                     .padding(.top, i == 0 ? 13 : 12)
                             }
-                            section("ĐÃ RÕ HÔM NAY (\(state.understood.count))")
-                                .padding(.top, 16)
+                            section("ĐÃ RÕ HÔM NAY", count: state.understood.count)
+                                .padding(.top, state.pending.isEmpty ? 14 : 16)
                             ForEach(Array(state.understood.enumerated()), id: \.element.id) { i, m in
                                 row(m, selected: state.pending.count + i == state.selectedIndex).id(m.id)
-                                    .padding(.top, i == 0 ? 16 : 12)
+                                    .padding(.top, i == 0 ? (state.pending.isEmpty ? 13 : 16) : 12)
                             }
                         }
                         .padding(.trailing, 19)
@@ -323,12 +324,12 @@ struct ShiftListView: View {
             }
             .padding(.leading, 41)
             .padding(.trailing, 41)
-            .padding(.bottom, 36)
+            .padding(.bottom, 50)             // nút ở y=695..759, safe area dưới ≈34
         }
     }
 
-    private func section(_ t: String) -> some View {
-        Text(t)
+    private func section(_ t: String, count: Int) -> some View {
+        Text(count == 0 ? "\(t) (0)" : t)
             .font(.system(size: 14, weight: .medium))
             .foregroundStyle(.black)
             .padding(.trailing, 4)

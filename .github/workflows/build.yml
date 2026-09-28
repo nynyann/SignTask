@@ -32,6 +32,19 @@ jobs:
             -project SignTask.xcodeproj \
             -scheme SignTask \
             -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
             | tee build.log | grep -E "error:|warning:|BUILD" || true
           grep -q "BUILD SUCCEEDED" build.log
+
+      - name: Đóng gói app Simulator (để chạy trên trình duyệt qua Appetize.io)
+        run: |
+          ditto -c -k --sequesterRsrc --keepParent \
+            build/Build/Products/Debug-iphonesimulator/SignTask.app SignTask-simulator.zip
+
+      - name: Tải lên mục Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: SignTask-appetize
+          path: SignTask-simulator.zip
+          retention-days: 30

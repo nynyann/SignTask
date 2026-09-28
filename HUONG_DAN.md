@@ -6,6 +6,7 @@
 - Một Apple ID (tài khoản miễn phí là đủ, không cần trả 99$)
 
 > Phím âm lượng **chỉ chạy trên iPhone thật**. Trên Simulator, bấm vào các tab +/− ở mép trái màn hình để thử.
+> Không có Mac hay iPhone? Xem phần "Chạy thử không cần Mac hay iPhone" trong README.md.
 
 ## Bước 1 — Tạo project
 1. Mở Xcode → **Create New Project** → iOS → **App** → Next.

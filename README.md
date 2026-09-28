@@ -3,12 +3,12 @@
 Prototype iOS (SwiftUI): nhận chỉ dẫn công việc dạng thẻ, điều khiển bằng phím âm lượng.
 Phím + / − làm việc khác nhau tùy màn hình (mở tin, để sau, đã rõ, hỏi lại).
 
-## Chạy thử không cần Mac hay iPhone (trên trình duyệt)
+## Chạy thử không cần Mac hay iPhone (trên trình duyệt/giống prototype rồi không cần dùng nữa)
 
-Dùng được trên **Windows, Chromebook, máy tính bất kỳ** — không cài gì, chỉ cần trình duyệt.
+Dùng được trên **Windows, Chromebook, máy tính bất kỳ** —> không cài gì, chỉ cần trình duyệt.
 
 Cách hoạt động: mỗi lần có code mới đẩy lên GitHub, máy Mac của GitHub tự build app và để sẵn một file tải về.
-Bạn đưa file đó lên **Appetize.io** — trang web chạy iPhone ảo ngay trong trình duyệt.
+Bạn đưa file đó lên **Appetize.io** aka trang web chạy iPhone ảo ngay trong trình duyệt.
 
 ### Bước 1 — Tải file app từ GitHub (cần đăng nhập GitHub)
 1. Mở https://github.com/nynyann/SignTask/actions
